@@ -140,14 +140,11 @@
 
     },
     leanModal: function(options) {
-      return this.each(function() {
-        // Close Handlers
-        $(this).click(function(e) {
-          var modal_id = $(this).attr("href") || '#' + $(this).data('target');
-          $(modal_id).openModal(options);
-          e.preventDefault();
-        }); // done set on click
-      }); // done return
+      return this.click(function(e) {
+        var $this = $(this);
+        var modal_id = $this.attr("href") || '#' + $this.data('target');
+        $(modal_id).openModal(options);
+        e.preventDefault();
     }
   });
 })(jQuery);
